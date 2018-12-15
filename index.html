@@ -1,0 +1,1846 @@
+
+<!DOCTYPE html>
+<html lang="ja" class="no-js no-svg">
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="Areus,Webコンサルティング,ホームページ制作,SEO対策,美容" />
+	<meta name="description" content="Areusはwebコンサルティング会社として、 システム設計・開発からブランディングまでを一貫して提供し、クライアントのベストプラクティスを実現します。" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+	
+	<link rel="shortcut icon" href="http://photo-site.main.jp/temp/wp-content/themes/temp/assets/images/favicon.ico" />
+	<meta name="apple-mobile-web-app-title" content="投稿テスト">
+	<link rel="apple-touch-icon" sizes="152x152" href="http://photo-site.main.jp/temp/wp-content/themes/temp/assets/images/touch-icon.png">
+	<link rel="stylesheet" type="text/css" href="http://photo-site.main.jp/temp/wp-content/themes/temp/assets/fonts/style.css" />
+	<link href="http://photo-site.main.jp/temp/wp-content/themes/temp/assets/css/common.css" rel="stylesheet" type="text/css" />
+
+			<link href="http://photo-site.main.jp/temp/wp-content/themes/temp/assets/css/index.css" rel="stylesheet" type="text/css" />
+				<link href="http://photo-site.main.jp/temp/wp-content/themes/temp/assets/css/fbanner.css" rel="stylesheet" type="text/css" />
+	
+		
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+	
+	<script>
+		// ページ読み込み中にローディング画面
+		$(function() {
+			var h = $(window).height(); // ブラウザウィンドウの高さを取得
+			$('#loadingArea').height(h); // ウィンドウの高さに合わせでローディング画面を表示
+			$('.loader').height(h); // ウィンドウの高さに合わせでローディング画面を表示
+		});
+		
+		$(window).on('load', function() {
+			$('#loadingArea').delay(700).fadeOut(700);
+			$('.loader').delay(350).fadeOut(350);
+		});
+	</script>
+	
+				<!-- scrollアニメーション -->
+		<link href="http://photo-site.main.jp/temp/wp-content/themes/temp/assets/js/ScrollTrigger/animate.css" rel="stylesheet" type="text/css" />
+		<script src="http://photo-site.main.jp/temp/wp-content/themes/temp/assets/js/ScrollTrigger/ScrollTrigger.js"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function(){
+				var trigger = new ScrollTrigger({
+					offset: {
+						x: 0,
+						y: 200					},
+					addHeight: true,
+					once: true				}, document.body, window);
+			});
+		</script>
+		
+		
+	<!-- tel:のPC・SP対応 JS -->
+	<script>
+		$(function() {
+			if (!isPhone())
+			return;
+
+			$('[data-action=call]').each(function() {
+				var $ele = $(this);
+				$ele.wrap('<a class="spTel" href="tel:' + $ele.data('tel') + '"><\/a>');
+			});
+		});
+
+		function isPhone() {
+			return (navigator.userAgent.indexOf('iPhone') > 0 || navigator.userAgent.indexOf('Android') > 0);
+		}
+	</script>
+
+	<!-- タブレット用ドロップダウンメニュー制御 -->
+	<script src="http://photo-site.main.jp/temp/wp-content/themes/temp/assets/js/doubletaptogo.js"></script>
+	<script>
+		$(function(){
+			$('.tabTouch:has(a)').doubleTapToGo();
+			$('.menu-item-has-children:has(a)').doubleTapToGo();
+		});
+	</script>
+
+	<!-- スライドTop -->
+	<script>
+	$(function(){
+		$("#pageTopArea").hide();
+		// ↑ページトップボタンを非表示にする
+
+		$(window).on("scroll", function() {
+
+			if ($(this).scrollTop() > 100) {
+				// ↑ スクロール位置が100よりも小さい場合に以下の処理をする
+				$('#pageTopArea').slideDown("fast");
+				// ↑ (100より小さい時は)ページトップボタンをスライドダウン
+			} else {
+				$('#pageTopArea').slideUp("fast");
+				// ↑ それ以外の場合の場合はスライドアップする。
+			}
+
+			// フッター固定する
+			scrollHeight = $(document).height();
+			// ドキュメントの高さ
+			scrollPosition = $(window).height() + $(window).scrollTop();
+			//　ウィンドウの高さ+スクロールした高さ→　現在のトップからの位置
+			footHeight = $("footer").innerHeight();
+			// フッターの高さ
+
+			if ( scrollHeight - scrollPosition  <= footHeight ) {
+			// 現在の下から位置が、フッターの高さの位置にはいったら
+			//  "#pageTopArea"のpositionをabsoluteに変更し、フッターの高さの位置にする
+				$("#pageTopArea").css({
+					"position":"absolute",
+					"bottom": footHeight
+				});
+			} else {
+			// それ以外の場合は元のcssスタイルを指定
+				$("#pageTopArea").css({
+					"position":"fixed",
+					"bottom": "3%"
+				});
+			}
+		});
+
+		// トップへスムーススクロール
+		$('#pageTopArea a').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 800);
+			// ページのトップへ 500 のスピードでスクロールする
+			return false;
+		 });
+	});
+	</script>
+
+			<script src="http://photo-site.main.jp/temp/wp-content/themes/temp/assets/js/headroom/Headroom.js"></script>
+	<script src="http://photo-site.main.jp/temp/wp-content/themes/temp/assets/js/headroom/jQuery.headroom.js"></script>
+	<script>
+		$(window).on('load resize', function() {
+			if (window.matchMedia('(min-width:769px)').matches) {
+				$(window).on('scroll', function() {
+										$('header').addClass(' scrollUp');
+					$('header').headroom({
+											"tolerance": 0,
+												"offset": 0,
+												"classes": {
+							"initial": "animated",
+							"pinned": "scrollUp",
+							"unpinned": "scrollDown",
+							"top": "headroom--top",
+														"notTop": "headroom--not-top-scroll"
+													},
+											});
+				});
+			} else if (window.matchMedia('(max-width:768px)').matches) {
+				$(window).on('scroll', function() {
+					$('header').addClass(' scrollUp');
+					$('header').headroom({
+						"tolerance": 0,
+						"offset": $('header').outerHeight(),
+						"classes": {
+							"initial": "animated",
+							"pinned": "scrollUp",
+							"unpinned": "scrollDown",
+							"top": "headroom--top",
+														"notTop": "headroom--not-top-scroll"
+													}
+					});
+				});
+			}
+		});
+	</script>
+	
+		
+	<title>株式会社Areus &#8211; システム設計・開発からブランディングまでを一貫して提供。</title>
+<meta name='robots' content='noindex,follow' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='stylesheet' id='contact-form-7-css'  href='http://photo-site.main.jp/temp/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.0.3' type='text/css' media='all' />
+<script async src='http://photo-site.main.jp/temp/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script async src='http://photo-site.main.jp/temp/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='http://photo-site.main.jp/wp-json/' />
+<link rel="shortcut icon" type="image/x-icon" href="http://photo-site.main.jp/temp/wp-content/themes/temp/assets/images/favicon.ico" />
+
+			<!-- Google map code from EZ Map - https://ezmap.co -->
+	<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDCoBQy_ueU5b5DL4frffbbhhUzQI_YpYc'></script>
+	<script>
+		function init() {
+			var mapOptions = {
+				"center": {
+					"lat": 35.696672,
+					"lng": 139.708676				},
+				"clickableIcons": true,
+				"disableDoubleClickZoom": false,// ダブルクリックで拡大・縮小するか falseで有効
+				"draggable": true,// ドラックで移動させるか
+				"fullscreenControl": true,// フルスクリーン表示させるか 右上にアイコン表示
+				"keyboardShortcuts": true,
+				"mapMaker": true,
+				"mapTypeControl": true,// マップ タイプ（地図、衛星写真など）の切り替え
+				"mapTypeControlOptions": {
+					"text": "Default (depends on viewport size etc.)",
+					"style": 0
+				},
+				"mapTypeId": "roadmap",
+				"rotateControl": true,// 斜め 45 度画像の向きを制御する回転コントロールの有効
+				"scaleControl": true,// マップ スケール コントロールの有効/無効 マップの右下に表示
+				"scrollwheel": true,// ホイールで拡大・縮小するか
+				"streetViewControl": false,// ストリートビューのパノラマ画像を表示する際に使うペグマン
+				"styles": [
+					{"elementType": "geometry.fill", "stylers": [{"saturation": -100 }, {"lightness": 25}]},
+					{"elementType": "geometry.stroke", "stylers": [{"color": "#d1d3d6" }, {"saturation": -100 }, {"lightness": 35 }, {"weight": 4.5}]},
+					{"elementType": "labels.icon", "stylers": [{"saturation": -100 }, {"visibility": "simplified"}]},
+					{"elementType": "labels.text.fill", "stylers": [{"color": "#616161"}]},
+					{"elementType": "labels.text.stroke", "stylers": [{"color": "#ffffff"}]},
+					{"featureType": "administrative.land_parcel", "elementType": "labels.text.fill", "stylers": [{"color": "#bdbdbd"}]},
+					{"featureType": "poi", "elementType": "geometry", "stylers": [{"color": "#eeeeee"}]},
+					{"featureType": "poi", "elementType": "labels.text.fill", "stylers": [{"color": "#757575"}]},
+					{"featureType": "poi.business", "stylers": [{"saturation": -100}]},
+					{"featureType": "poi.business", "elementType": "geometry.fill", "stylers": [{"visibility": "off"}]},
+					{"featureType": "poi.business", "elementType": "geometry.stroke", "stylers": [{"visibility": "off"}]},
+					{"featureType": "poi.government", "stylers": [{"visibility": "off"}]},
+					{"featureType": "poi.park", "stylers": [{"visibility": "off"}]},
+					{"featureType": "poi.park", "elementType": "geometry", "stylers": [{"color": "#e5e5e5"}]},
+					{"featureType": "poi.park", "elementType": "labels.text.fill", "stylers": [{"color": "#9e9e9e"}]},
+					{"featureType": "poi.place_of_worship", "elementType": "geometry", "stylers": [{"color": "#cfd1d5"}]},
+					{"featureType": "poi.school", "elementType": "geometry", "stylers": [{"color": "#cfd1d5"}]},
+					{"featureType": "poi.sports_complex", "stylers": [{"visibility": "off"}]},
+					{"featureType": "road", "elementType": "geometry", "stylers": [{"color": "#ffffff"}]},
+					{"featureType": "road", "elementType": "labels.icon", "stylers": [{"visibility": "on"}]},
+					{"featureType": "road", "elementType": "labels.text", "stylers": [{"color": "#ffffff" }, {"saturation": -50 }, {"lightness": 35}]},
+					{"featureType": "road", "elementType": "labels.text.fill", "stylers": [{"weight": 2}]},
+					{"featureType": "road.arterial", "elementType": "labels.text.fill", "stylers": [{"color": "#757575"}]},
+					{"featureType": "road.highway", "stylers": [{"visibility": "on"}]},
+					{"featureType": "road.highway", "elementType": "geometry", "stylers": [{"saturation": 40}]},
+					{"featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{"color": "#888d96"}]},
+					{"featureType": "road.highway", "elementType": "labels.text.fill", "stylers": [{"color": "#616161"}]},
+					{"featureType": "road.local", "elementType": "labels.text.fill", "stylers": [{"color": "#9e9e9e"}]},
+					{"featureType": "transit.line", "elementType": "geometry", "stylers": [{"color": "#e5e5e5"}]},
+					{"featureType": "transit.station", "elementType": "geometry", "stylers": [{"color": "#b7bac0"}]},
+					{"featureType": "water", "elementType": "geometry", "stylers": [{"color": "#d6d8db"}]},
+					{"featureType": "water", "elementType": "labels.text.fill", "stylers": [{"color": "#9e9e9e"}]}
+				],
+
+				"zoom": 17,
+				"zoomControl": true// ズーム コントロールの有効/無効
+			};
+			var mapElement = document.getElementById('map');
+			var map = new google.maps.Map(mapElement, mapOptions);
+			var marker0 = new google.maps.Marker({
+				title: "株式会社Areus（アレス）",
+				icon: "http://photo-site.main.jp/temp/wp-content/uploads/2018/07/mapPin.png",
+				position: new google.maps.LatLng(35.696672, 139.708676),
+				map: map
+			});
+
+			google.maps.event.addDomListener(window, "resize", function() { var center = map.getCenter(); google.maps.event.trigger(map, "resize"); map.setCenter(center); });
+		}
+	google.maps.event.addDomListener(window, 'load', init);
+	</script>
+	<!-- End of EZ Map code - https://ezmap.co -->
+		</head>
+
+<body class="home blog">
+<div id="loadingArea">
+	<div class="loader">
+		<div class="loadImg">
+			<img src="http://photo-site.main.jp/temp/wp-content/uploads/2018/07/logo.svg" alt="株式会社Areus" />
+		</div>
+	</div>
+</div>
+	<input type="checkbox" value="" id="navToggle">
+	<label for="navToggle" class="hamburgerClose"></label>
+
+	<nav id="spGlobalNavi" class="pcNone">
+		<ul><li class="sortFirst current"><a href="http://photo-site.main.jp/">Home<span>ホーム</span></a></li><li class="tabTouch hasChild sort1"><a href="/news">News<span>ニュース</span></a><ul>	<li class="cat-item cat-item-2"><a href="http://photo-site.main.jp/category/news/" >News</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://photo-site.main.jp/category/info/" >Info</a>
+</li>
+</ul></li><li class="tabTouch hasChild sort2"><a href="/blog">Blog</a><ul>	<li class="cat-item cat-item-15"><a href="http://photo-site.main.jp/blog_category/action/" >Action</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="http://photo-site.main.jp/blog_category/template/" >Template</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://photo-site.main.jp/blog_category/font/" >Font</a>
+</li>
+</ul></li><li class="tabTouch hasChild sort3"><a href="/gallery">Gallery<span>ギャラリー</span></a><ul>	<li class="cat-item cat-item-4"><a href="http://photo-site.main.jp/gallery_category/gallery/" >Gallery</a>
+</li>
+</ul></li><li class="tabTouch hasChild sort4"><a href="/menu">Menu<span>メニュー</span></a><ul>	<li class="cat-item cat-item-8"><a href="http://photo-site.main.jp/menu_category/color/" >カラー</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://photo-site.main.jp/menu_category/cut/" >カット</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="http://photo-site.main.jp/menu_category/perm/" >パーマ</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="http://photo-site.main.jp/menu_category/treatment/" >トリートメント</a>
+</li>
+	<li class="cat-item cat-item-18"><a href="http://photo-site.main.jp/menu_category/head-spa/" >ヘッドスパ</a>
+</li>
+	<li class="cat-item cat-item-19"><a href="http://photo-site.main.jp/menu_category/other/" >その他</a>
+</li>
+</ul></li><li class="tabTouch hasChild sort5"><a href="/staff">Staff<span>スタッフ</span></a><ul>	<li class="cat-item cat-item-10"><a href="http://photo-site.main.jp/staff_category/creative-director/" >Creative Director</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="http://photo-site.main.jp/staff_category/stylist/" >Stylist</a>
+</li>
+</ul></li><li class="tabTouch hasChild sort5"><a href="/group">Group</a><ul>	<li class="cat-item cat-item-11"><a href="http://photo-site.main.jp/group_category/tokyo/" >東京</a>
+<ul class='children'>
+	<li class="cat-item cat-item-13"><a href="http://photo-site.main.jp/group_category/ikebukuro/" >池袋</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="http://photo-site.main.jp/group_category/shinjuku/" >新宿</a>
+</li>
+</ul>
+</li>
+</ul></li><li class="sort7"><a href="http://photo-site.main.jp/contact/">Contact<span>お問い合わせ</span></a></li><li class="sort6"><a href="http://photo-site.main.jp/recruit/">Recruit<span>採用情報</span></a></li><li class="snsSp"><ul><li class="facebook"><a href="https://ja-jp.facebook.com/" target="_blank"></a></li><li class="twitter"><a href="https://twitter.com/?lang=ja" target="_blank"></a></li><li class="instagram"><a href="https://www.instagram.com/?hl=ja" target="_blank"></a></li><li class="telSp"><a href="tel:0369114411"></a></li></ul></li></ul>	</nav>
+	
+		
+	<div id="headerTypeAF" class="HVContainer">
+		<header>
+			<article id="headerContainer">
+				<h1 id="logoH1">
+					<a href="http://photo-site.main.jp/">
+													<img src="http://photo-site.main.jp/temp/wp-content/uploads/2018/07/logo.svg" alt="株式会社Areus" />
+											</a>
+				</h1>
+				
+				<nav id="headerNavi" class="spNone">
+					<ul class="tabTouch"><li class="sortFirst current"><a href="http://photo-site.main.jp/">Home<span>ホーム</span></a></li><li class="tabTouch hasChild sort1"><a href="/news">News<span>ニュース</span></a><ul>	<li class="cat-item cat-item-2"><a href="http://photo-site.main.jp/category/news/" >News</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://photo-site.main.jp/category/info/" >Info</a>
+</li>
+</ul></li><li class="tabTouch hasChild sort2"><a href="/blog">Blog</a><ul>	<li class="cat-item cat-item-15"><a href="http://photo-site.main.jp/blog_category/action/" >Action</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="http://photo-site.main.jp/blog_category/template/" >Template</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://photo-site.main.jp/blog_category/font/" >Font</a>
+</li>
+</ul></li><li class="tabTouch hasChild sort3"><a href="/gallery">Gallery<span>ギャラリー</span></a><ul>	<li class="cat-item cat-item-4"><a href="http://photo-site.main.jp/gallery_category/gallery/" >Gallery</a>
+</li>
+</ul></li><li class="tabTouch hasChild sort4"><a href="/menu">Menu<span>メニュー</span></a><ul>	<li class="cat-item cat-item-8"><a href="http://photo-site.main.jp/menu_category/color/" >カラー</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://photo-site.main.jp/menu_category/cut/" >カット</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="http://photo-site.main.jp/menu_category/perm/" >パーマ</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="http://photo-site.main.jp/menu_category/treatment/" >トリートメント</a>
+</li>
+	<li class="cat-item cat-item-18"><a href="http://photo-site.main.jp/menu_category/head-spa/" >ヘッドスパ</a>
+</li>
+	<li class="cat-item cat-item-19"><a href="http://photo-site.main.jp/menu_category/other/" >その他</a>
+</li>
+</ul></li><li class="tabTouch hasChild sort5"><a href="/staff">Staff<span>スタッフ</span></a><ul>	<li class="cat-item cat-item-10"><a href="http://photo-site.main.jp/staff_category/creative-director/" >Creative Director</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="http://photo-site.main.jp/staff_category/stylist/" >Stylist</a>
+</li>
+</ul></li><li class="tabTouch hasChild sort5"><a href="/group">Group</a><ul>	<li class="cat-item cat-item-11"><a href="http://photo-site.main.jp/group_category/tokyo/" >東京</a>
+<ul class='children'>
+	<li class="cat-item cat-item-13"><a href="http://photo-site.main.jp/group_category/ikebukuro/" >池袋</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="http://photo-site.main.jp/group_category/shinjuku/" >新宿</a>
+</li>
+</ul>
+</li>
+</ul></li><li class="sort7"><a href="http://photo-site.main.jp/contact/">Contact<span>お問い合わせ</span></a></li><li class="sort6"><a href="http://photo-site.main.jp/recruit/">Recruit<span>採用情報</span></a></li></ul>				</nav>
+				
+								
+								<div id="headerCR">
+					<a href="/contect">
+													<span>Reservation</span><span>Webで予約</span>											</a>
+				</div>
+								
+				<div id="spSlidMenuBtn" class="pcNone">
+					<label for="navToggle" class="hamburgerOpen"><span></span></label>
+				</div>
+			</article>
+		</header>
+		
+								
+			<section id="mainVisual" class="width100Para headerFix">
+				<div class="innerTextWrap centerLeft">
+					<div class="innerText fadeInScale">
+												
+																			<h2 class="visualH2">
+															<span>The</span>
+															<span>Design</span>
+															<span>Genome</span>
+															<span>Project</span>
+														</h2>
+											</div><!-- .innerText END -->
+				</div><!-- .innerTextWrap END -->
+				<div class="mainImage" style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/mv.jpg);"></div>
+			</section>
+							
+			</div><!-- .HVContainer END -->
+	
+	<div id="wrap">
+				
+		<div id="container">
+					<div id="introductionSection" class="containerSection">
+		<div class="mainContentWrap">
+			<h2 class="topAboutH2">									<img src="http://photo-site.main.jp/temp/wp-content/uploads/2018/07/logo.svg" alt="会社紹介" />
+							</h2>
+			
+									<div class="topAboutWrap">
+				<p>				
+					We are<br />
+Areusはwebコンサルティング会社として、<br />
+システム設計・開発からブランディングまでを一貫して提供し、クライアントのベストプラクティスを実現します。				</p>
+			</div>
+					</div><!-- .mainContentWrap END -->
+	</div><!-- .containerSection END -->
+					
+	
+							<div id="newsSection" class="containerSection sort1">
+				<div class="mainContentWrap">
+					<div class="indexTitleSetsWrap">
+						<h2 class="comIndexH2 newsH2">
+							<span class="main">News</span>
+							<span class="sub">ユーザーの課題解決とビジネスの成功を両立するUXデザインを提供し、 新規事業の実現や既存サービスの成長に貢献します。</span>						</h2>
+						<div class="postMainText"><span class="contentSpan">アプリやWebサービスを対象としたUXデザインや、ビジネス戦略に活かせる記事を掲載しています。
+</span><span class="contentSpan">
+</span><span class="contentSpan">ユーザーの課題解決とビジネスの成功を両立するUXデザインを提供し、
+</span><span class="contentSpan">新規事業の実現や既存サービスの成長に貢献します。</span></div>					</div>
+					
+											
+						<div class="newsListWrap">
+							<ul>																						
+
+	<li class="animated " data-scroll="toggle(.fadeInDown, .invisible)">
+			<div class="listImages" data-terms="News">
+							<a href="http://photo-site.main.jp/403/news/" data-terms="News">
+																						<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/themes/temp/assets/images/notImages.jpg);"></span>
+																</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="News">
+									<a href="http://photo-site.main.jp/403/news/" data-terms="News">
+															<span class="articleTitle">
+							投稿テスト						</span>
+						<span class="listDate">2018年08月02日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="News">
+								<div class="commentTextWrap" data-terms="News">
+											投稿テスト投稿テスト投稿テスト投稿テスト投稿テスト									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.fadeInDown, .invisible)">
+			<div class="listImages" data-terms="News">
+							<a href="http://photo-site.main.jp/79/news/" data-terms="News">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/milieu_171121_017.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="News">
+									<a href="http://photo-site.main.jp/79/news/" data-terms="News">
+															<span class="articleTitle">
+							メディアのルールは変わった。今のプライドを捨てる勇気はあるか…						</span>
+						<span class="listDate">2018年07月13日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="News">
+								<div class="commentTextWrap" data-terms="News">
+											「ホリエモンさん、家入一真さんと対談してみたいです！」
+
+23歳の女の子の無邪気な一言から1ヶ月…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.fadeInDown, .invisible)">
+			<div class="listImages" data-terms="News">
+							<a href="http://photo-site.main.jp/77/news/" data-terms="News">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/aa_IMG_2960.png);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="News">
+									<a href="http://photo-site.main.jp/77/news/" data-terms="News">
+															<span class="articleTitle">
+							「アーティストです」と自己紹介すると「アートって難しい」と返…						</span>
+						<span class="listDate">2018年07月13日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="News">
+								<div class="commentTextWrap" data-terms="News">
+											神秘的な生物の造形や映像で知られるマシュー・バーニーがイェール大学で医学や体育を学んでいたことは、関…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.fadeInDown, .invisible)">
+			<div class="listImages" data-terms="News">
+							<a href="http://photo-site.main.jp/69/news/" data-terms="News">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/girl-on-the-lake-after.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="News">
+									<a href="http://photo-site.main.jp/69/news/" data-terms="News">
+															<span class="articleTitle">
+							Made in Paris.　その刻印は、ブランディングのた…						</span>
+						<span class="listDate">2018年07月13日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="News">
+								<div class="commentTextWrap" data-terms="News">
+											あなたは今、この記事をどこで読んでいるだろうか？
+
+きっと多いのは、東京、大阪、福岡……中には、…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.fadeInDown, .invisible)">
+			<div class="listImages" data-terms="News">
+							<a href="http://photo-site.main.jp/64/news/" data-terms="News">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/bright-gradient-lake.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="News">
+									<a href="http://photo-site.main.jp/64/news/" data-terms="News">
+															<span class="articleTitle">
+							海外進出を考えているのなら、この制度は知っておきたい！はじめ…						</span>
+						<span class="listDate">2018年07月13日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="News">
+								<div class="commentTextWrap" data-terms="News">
+											「このインターネット時代なんですから、もっと海外市場を視野に入れていきましょう」
+
+ 
+
+—…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.fadeInDown, .invisible)">
+			<div class="listImages" data-terms="News">
+							<a href="http://photo-site.main.jp/62/news/" data-terms="News">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/IMG_0006.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="News">
+									<a href="http://photo-site.main.jp/62/news/" data-terms="News">
+															<span class="articleTitle">
+							「ライターになりたい！」というニーズが急増する今。労働集約型…						</span>
+						<span class="listDate">2018年07月13日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="News">
+								<div class="commentTextWrap" data-terms="News">
+											「ライターになりたいです！」
+
+純粋にそう願う人と、ここ最近、どれだけ出会っただろうか。
+ライ…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.fadeInDown, .invisible)">
+			<div class="listImages" data-terms="News">
+							<a href="http://photo-site.main.jp/60/news/" data-terms="News">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/IMG_7328.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="News">
+									<a href="http://photo-site.main.jp/60/news/" data-terms="News">
+															<span class="articleTitle">
+							父が娘についた嘘。						</span>
+						<span class="listDate">2018年07月13日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="News">
+								<div class="commentTextWrap" data-terms="News">
+											こんにちは、塩谷舞です。
+
+もし昨日の帰宅ラッシュの時間帯。なぜか金魚が三匹入った袋を大切そうに…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.fadeInDown, .invisible)">
+			<div class="listImages" data-terms="Info">
+							<a href="http://photo-site.main.jp/14/info/" data-terms="Info">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/sunkissed-ps-actions.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="Info">
+									<a href="http://photo-site.main.jp/14/info/" data-terms="Info">
+															<span class="articleTitle">
+							こんなに贅沢な場所が、本当に「大学」？ あまりにもケタ外れな…						</span>
+						<span class="listDate">2018年07月13日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="Info">
+								<div class="commentTextWrap" data-terms="Info">
+											「若い頃は理不尽な苦労をしたけれど、それが結果として今の自分に活きている」
+
+……というセリフは…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.fadeInDown, .invisible)">
+			<div class="listImages" data-terms="Info">
+							<a href="http://photo-site.main.jp/1/info/" data-terms="Info">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/IMG_0046.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="Info">
+									<a href="http://photo-site.main.jp/1/info/" data-terms="Info">
+															<span class="articleTitle">
+							SNSは、誰かを袋叩きにするための場所？それとも、社会を変え…						</span>
+						<span class="listDate">2018年07月13日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="Info">
+								<div class="commentTextWrap" data-terms="Info">
+											「視野が狭いから、もっと広い世界を見たほうがいいと思うよ」
+
+大学時代、よくそんなことを言われて…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																					</ul>
+						</div><!-- newsListWrap END -->
+						
+						<nav class="moreListNavi">
+							<a href="/news"><span></span></a>
+						</nav>
+									</div><!-- .mainContentWrap END -->
+			</div><!-- .containerSection END -->
+									<div id="blogSection" class="visualContainerSection sort2" style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/164_1920_1080.jpg);">
+				<div class="mainContentWrap">
+					<div class="indexTitleSetsWrap">
+						<h2 class="comIndexH2 blogH2">
+							<span class="main">Blog</span>
+							<span class="sub">最新記事はこちらからどうぞ。</span>						</h2>
+						<div class="postMainText"><span class="contentSpan">これからウェブサイト制作を行うひとが確認したい、創造力を高める最新ウェブデザインをまとめてご紹介します。
+</span><span class="contentSpan">さまざまな優れた実例サンプルを見ることで、デザイン案件のアイデアにも活用できます。</span></div>					</div>
+					
+											
+						<div class="blogListWrap divisionList">
+																													
+	<div class="divisionfirst animated " data-scroll="toggle(.fadeInUp, .invisible)">
+
+			<div class="listImages" data-terms="Font">
+							<a href="http://photo-site.main.jp/blog/%e3%83%87%e3%82%b6%e3%82%a4%e3%83%8a%e3%83%bc%e3%81%8c%e6%8c%81%e3%81%a3%e3%81%a6%e3%81%84%e3%81%9f%e3%81%84%e3%80%81%e3%81%99%e3%81%94%e3%81%84%e3%83%95%e3%83%aa%e3%83%bc%e3%83%95%e3%82%a9%e3%83%b3/" data-terms="Font">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/quickens.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="Font">
+									<a href="http://photo-site.main.jp/blog/%e3%83%87%e3%82%b6%e3%82%a4%e3%83%8a%e3%83%bc%e3%81%8c%e6%8c%81%e3%81%a3%e3%81%a6%e3%81%84%e3%81%9f%e3%81%84%e3%80%81%e3%81%99%e3%81%94%e3%81%84%e3%83%95%e3%83%aa%e3%83%bc%e3%83%95%e3%82%a9%e3%83%b3/" data-terms="Font">
+															<span class="articleTitle">
+							デザイナーが持っていたい、すごいフリーフォント素材63個まと…						</span>
+						<span class="listDate">2018年07月25日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="Font">
+								<div class="commentTextWrap" data-terms="Font">
+											
+
+デザインをしているときにどれを使おうか迷うことも多く、デザイン全体の雰囲気やイメージを決める…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</div><!-- .divisionfirst END -->
+
+																						
+	<ul>
+
+	<li class="animated " data-scroll="toggle(.fadeInUp, .invisible)">
+			<div class="listImages" data-terms="Action">
+							<a href="http://photo-site.main.jp/blog/%e4%bd%9c%e6%a5%ad%e5%8a%b9%e7%8e%87%e3%81%8c%e5%8a%87%e7%9a%84%e3%81%ab%e3%82%a2%e3%83%83%e3%83%97%e3%81%99%e3%82%8b%e3%80%81photoshop%e7%84%a1%e6%96%99%e3%82%a2%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3/" data-terms="Action">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/duotone-life.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="Action">
+									<a href="http://photo-site.main.jp/blog/%e4%bd%9c%e6%a5%ad%e5%8a%b9%e7%8e%87%e3%81%8c%e5%8a%87%e7%9a%84%e3%81%ab%e3%82%a2%e3%83%83%e3%83%97%e3%81%99%e3%82%8b%e3%80%81photoshop%e7%84%a1%e6%96%99%e3%82%a2%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3/" data-terms="Action">
+															<span class="articleTitle">
+							作業効率が劇的にアップする、Photoshop無料アクション…						</span>
+						<span class="listDate">2018年07月25日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="Action">
+								<div class="commentTextWrap" data-terms="Action">
+											
+
+Photoshopで作業をするときに、よく利用する画像処理や、同じ作業を繰り返す行うことがあ…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.fadeInDown, .invisible)">
+			<div class="listImages" data-terms="Font">
+							<a href="http://photo-site.main.jp/blog/%e3%83%87%e3%82%b6%e3%82%a4%e3%83%8a%e3%83%bc%e8%a6%81%e6%b3%a8%e7%9b%ae%ef%bc%81%e3%81%99%e3%81%94%e3%81%84%e3%83%95%e3%83%aa%e3%83%bc%e3%83%95%e3%82%a9%e3%83%b3%e3%83%8857%e5%80%8b%e3%81%be%e3%81%a8/" data-terms="Font">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/rowdy_pro_poster01-1.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="Font">
+									<a href="http://photo-site.main.jp/blog/%e3%83%87%e3%82%b6%e3%82%a4%e3%83%8a%e3%83%bc%e8%a6%81%e6%b3%a8%e7%9b%ae%ef%bc%81%e3%81%99%e3%81%94%e3%81%84%e3%83%95%e3%83%aa%e3%83%bc%e3%83%95%e3%82%a9%e3%83%b3%e3%83%8857%e5%80%8b%e3%81%be%e3%81%a8/" data-terms="Font">
+															<span class="articleTitle">
+							デザイナー要注目！すごいフリーフォント57個まとめ 2018…						</span>
+						<span class="listDate">2018年07月25日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="Font">
+								<div class="commentTextWrap" data-terms="Font">
+											デザイナーが持っていたい、すごいフリーフォントまとめ
+
+
+
+毎月公開されたデザイン性の高いフ…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.fadeInUp, .invisible)">
+			<div class="listImages" data-terms="Template">
+							<a href="http://photo-site.main.jp/blog/photoshop%e3%81%a7%e3%81%93%e3%81%93%e3%81%be%e3%81%a7%e3%81%a7%e3%81%8d%e3%82%8b%ef%bc%81%e3%81%99%e3%81%94%e3%81%84%e7%84%a1%e6%96%99%e3%83%a2%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%83%86/" data-terms="Template">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/minimal-samsung-galaxy-s9.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="Template">
+									<a href="http://photo-site.main.jp/blog/photoshop%e3%81%a7%e3%81%93%e3%81%93%e3%81%be%e3%81%a7%e3%81%a7%e3%81%8d%e3%82%8b%ef%bc%81%e3%81%99%e3%81%94%e3%81%84%e7%84%a1%e6%96%99%e3%83%a2%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%83%86/" data-terms="Template">
+															<span class="articleTitle">
+							Photoshopでここまでできる！すごい無料モックアップテ…						</span>
+						<span class="listDate">2018年07月25日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="Template">
+								<div class="commentTextWrap" data-terms="Template">
+											
+
+
+完成したデザインを適切に展示、披露するのに便利な、無料モックアップテンプレート素材をまと…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.fadeInDown, .invisible)">
+			<div class="listImages" data-terms="Font">
+							<a href="http://photo-site.main.jp/blog/%e3%80%90%e3%83%87%e3%82%b6%e3%82%a4%e3%83%8a%e3%83%bc%e5%bf%85%e8%a6%8b%e3%80%91%e5%b7%ae%e3%81%ae%e3%81%a4%e3%81%8f%e3%83%87%e3%82%b6%e3%82%a4%e3%83%b3%e3%80%81%e3%81%99%e3%81%94%e3%81%84%e3%83%95/" data-terms="Font">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/katori-rose.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="Font">
+									<a href="http://photo-site.main.jp/blog/%e3%80%90%e3%83%87%e3%82%b6%e3%82%a4%e3%83%8a%e3%83%bc%e5%bf%85%e8%a6%8b%e3%80%91%e5%b7%ae%e3%81%ae%e3%81%a4%e3%81%8f%e3%83%87%e3%82%b6%e3%82%a4%e3%83%b3%e3%80%81%e3%81%99%e3%81%94%e3%81%84%e3%83%95/" data-terms="Font">
+															<span class="articleTitle">
+							【デザイナー必見】差のつくデザイン、すごいフリーフォント65…						</span>
+						<span class="listDate">2018年07月25日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="Font">
+								<div class="commentTextWrap" data-terms="Font">
+											
+
+毎月公開されたデザイン性の高いフリーフォントのみをピックアップし、まとめてご紹介しています。…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.fadeInUp, .invisible)">
+			<div class="listImages" data-terms="Font">
+							<a href="http://photo-site.main.jp/blog/%e4%ba%ba%e6%b0%97%e3%83%95%e3%82%a9%e3%83%b3%e3%83%88-futura-%e3%81%9d%e3%81%a3%e3%81%8f%e3%82%8a%e5%95%86%e7%94%a8%e5%88%a9%e7%94%a8%e3%82%82%e3%81%a7%e3%81%8d%e3%82%8b%e7%84%a1%e6%96%99%e4%b8%87/" data-terms="Font">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/1.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="Font">
+									<a href="http://photo-site.main.jp/blog/%e4%ba%ba%e6%b0%97%e3%83%95%e3%82%a9%e3%83%b3%e3%83%88-futura-%e3%81%9d%e3%81%a3%e3%81%8f%e3%82%8a%e5%95%86%e7%94%a8%e5%88%a9%e7%94%a8%e3%82%82%e3%81%a7%e3%81%8d%e3%82%8b%e7%84%a1%e6%96%99%e4%b8%87/" data-terms="Font">
+															<span class="articleTitle">
+							人気フォント Futura そっくり?!商用利用もできる無料…						</span>
+						<span class="listDate">2018年07月25日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="Font">
+								<div class="commentTextWrap" data-terms="Font">
+											1927年に Paul Renner によって設計、デザインされた書体 Futura は、世界的にも…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.fadeInDown, .invisible)">
+			<div class="listImages" data-terms="Font">
+							<a href="http://photo-site.main.jp/blog/%e5%95%86%e7%94%a8%e5%8f%af%e8%83%bd%e3%81%aa%e7%84%a1%e6%96%99%e3%83%95%e3%82%a9%e3%83%b3%e3%83%88%e9%99%90%e5%ae%9a%ef%bc%812018%e5%b9%b4%e4%b8%8a%e5%8d%8a%e6%9c%9f%e5%85%ac%e9%96%8b%e3%81%ae/" data-terms="Font">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/2016photostock-1.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="Font">
+									<a href="http://photo-site.main.jp/blog/%e5%95%86%e7%94%a8%e5%8f%af%e8%83%bd%e3%81%aa%e7%84%a1%e6%96%99%e3%83%95%e3%82%a9%e3%83%b3%e3%83%88%e9%99%90%e5%ae%9a%ef%bc%812018%e5%b9%b4%e4%b8%8a%e5%8d%8a%e6%9c%9f%e5%85%ac%e9%96%8b%e3%81%ae/" data-terms="Font">
+															<span class="articleTitle">
+							商用可能な無料フォント限定！2018年上半期公開のフリーフォ…						</span>
+						<span class="listDate">2018年07月25日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="Font">
+								<div class="commentTextWrap" data-terms="Font">
+											
+
+あっという間に一年の半分が過ぎ、暑い夏の季節になりました。今回は、2018年上半期にリリース…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.fadeInUp, .invisible)">
+			<div class="listImages" data-terms="Template">
+							<a href="http://photo-site.main.jp/blog/instagram%e3%81%aa%e3%81%a9%e3%81%aesns%e6%8a%95%e7%a8%bf%e3%81%a7%e4%bd%bf%e3%81%88%e3%82%8b%e3%80%81%e8%a6%8b%e3%81%9f%e7%9b%ae%e3%81%ae%e8%89%af%e3%81%84%e7%84%a1%e6%96%99photoshop%e3%83%86/" data-terms="Template">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/Nepali-LONG-1.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="Template">
+									<a href="http://photo-site.main.jp/blog/instagram%e3%81%aa%e3%81%a9%e3%81%aesns%e6%8a%95%e7%a8%bf%e3%81%a7%e4%bd%bf%e3%81%88%e3%82%8b%e3%80%81%e8%a6%8b%e3%81%9f%e7%9b%ae%e3%81%ae%e8%89%af%e3%81%84%e7%84%a1%e6%96%99photoshop%e3%83%86/" data-terms="Template">
+															<span class="articleTitle">
+							InstagramなどのSNS投稿で使える、見た目の良い無料…						</span>
+						<span class="listDate">2018年07月25日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="Template">
+								<div class="commentTextWrap" data-terms="Template">
+											「インスタ映え」という言葉が流行語になるほど、日本だけでなく世界中で利用者を増やしているInstag…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																					</ul>
+						</div><!-- blogListWrap END -->
+						
+						<nav class="moreListNavi">
+							<a href="/blog"><span></span></a>
+						</nav>
+									</div><!-- .mainContentWrap END -->
+			</div><!-- .containerSection END -->
+									<div id="gallerySection" class="paraContainerSection sort3" style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/1920x1200.jpg);">
+				<div class="mainContentWrap">
+					<div class="indexTitleSetsWrap">
+						<h2 class="comIndexH2 galleryH2">
+							<span class="main">Gallery</span>
+							<span class="sub">最新のヘアスタイル</span>						</h2>
+						<div class="postMainText"><span class="contentSpan">髪型、ヘアスタイル。それは絶対に脱ぐ事の出来ないリアルクローズ。
+</span><span class="contentSpan">
+</span><span class="contentSpan">『常にオシャレでいたい、ファッションを楽しみたい』
+</span><span class="contentSpan">そんなあなたの為にふつうよりもちょっとだけ飛び出したヘアスタイルを。</span></div>					</div>
+					
+											
+						<div class="galleryListWrap">
+							<ul>																						
+
+	<li class="animated " data-scroll="toggle(.zoomInDown, .invisible)">
+			<div class="listImages" data-terms="Gallery">
+							<a href="http://photo-site.main.jp/gallery/gallery03/" data-terms="Gallery">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/action-thum.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="Gallery">
+									<a href="http://photo-site.main.jp/gallery/gallery03/" data-terms="Gallery">
+															<span class="articleTitle">
+							Gallery03						</span>
+						<span class="listDate">2018年07月13日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="Gallery">
+								<div class="commentTextWrap" data-terms="Gallery">
+											Gallery03Gallery03Gallery03Gallery03
+Gallery03Gal…									</div><!-- .commentTextWrap -->
+								
+								
+									<dl class="stylistWrap">
+																												<dt>
+									<a href="http://photo-site.main.jp/staff/%e6%b2%bc%e5%b0%bb-%e5%85%b8%e7%a5%a5/">
+										<span class="name">沼尻 典祥<span class="eng">noriyasu numajiri</span></span>
+										
+										<span class="jobType">ディレクター <span class="positionType">副店長 </span></span>									</a>
+								</dt>
+								
+								<dd>
+									<div class="staffImg">
+										<a href="http://photo-site.main.jp/staff/%e6%b2%bc%e5%b0%bb-%e5%85%b8%e7%a5%a5/">
+											<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/S9.jpg);"></span>
+										</a>
+									</div>
+								</dd>
+																			</dl>
+							</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.zoomInDown, .invisible)">
+			<div class="listImages" data-terms="Gallery">
+							<a href="http://photo-site.main.jp/gallery/gallery002/" data-terms="Gallery">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/marshmallow-action.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="Gallery">
+									<a href="http://photo-site.main.jp/gallery/gallery002/" data-terms="Gallery">
+															<span class="articleTitle">
+							Gallery002						</span>
+						<span class="listDate">2018年07月13日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="Gallery">
+								<div class="commentTextWrap" data-terms="Gallery">
+											Gallery002Gallery002Gallery002Gallery002Gallery002…									</div><!-- .commentTextWrap -->
+								
+								
+									<dl class="stylistWrap">
+																												<dt>
+									<a href="http://photo-site.main.jp/staff/%e5%ae%89%e8%97%a4-%e5%8d%97/">
+										<span class="name">安藤 南<span class="eng">minami ando</span></span>
+										
+										<span class="jobType">スタイリスト<span class="positionType"></span></span>									</a>
+								</dt>
+								
+								<dd>
+									<div class="staffImg">
+										<a href="http://photo-site.main.jp/staff/%e5%ae%89%e8%97%a4-%e5%8d%97/">
+											<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/B020801502-550x893.jpg);"></span>
+										</a>
+									</div>
+								</dd>
+																			</dl>
+							</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.zoomInDown, .invisible)">
+			<div class="listImages" data-terms="Gallery">
+							<a href="http://photo-site.main.jp/gallery/gallery01/" data-terms="Gallery">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/lightroom-feat-image.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="Gallery">
+									<a href="http://photo-site.main.jp/gallery/gallery01/" data-terms="Gallery">
+															<span class="articleTitle">
+							Gallery01						</span>
+						<span class="listDate">2018年07月13日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="Gallery">
+								<div class="commentTextWrap" data-terms="Gallery">
+											Gallery01Gallery01Gallery01Gallery01Gallery01Galle…									</div><!-- .commentTextWrap -->
+								
+								
+									<dl class="stylistWrap">
+																												<dt>
+									<a href="http://photo-site.main.jp/staff/%e6%b2%bc%e5%b0%bb-%e5%85%b8%e7%a5%a5/">
+										<span class="name">沼尻 典祥<span class="eng">noriyasu numajiri</span></span>
+										
+										<span class="jobType">ディレクター <span class="positionType">副店長 </span></span>									</a>
+								</dt>
+								
+								<dd>
+									<div class="staffImg">
+										<a href="http://photo-site.main.jp/staff/%e6%b2%bc%e5%b0%bb-%e5%85%b8%e7%a5%a5/">
+											<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/S9.jpg);"></span>
+										</a>
+									</div>
+								</dd>
+																			</dl>
+							</dd>
+		</dl>
+	</li>
+
+																					</ul>
+						</div><!-- galleryListWrap END -->
+						
+						<nav class="moreListNavi">
+							<a href="/gallery"><span></span></a>
+						</nav>
+									</div><!-- .mainContentWrap END -->
+			</div><!-- .containerSection END -->
+									<div id="productSection" class="containerSection sort4">
+				<div class="mainContentWrap">
+					<div class="indexTitleSetsWrap">
+						<h2 class="comIndexH2 productH2">
+							<span class="main">Product</span>
+													</h2>
+											</div>
+					
+											
+						<div class="productListWrap">
+							<ul>																						
+
+	<li class="animated " data-scroll="toggle(.bounceIn, .invisible)">
+			<div class="listImages" data-terms="シャンプー">
+							<a href="http://photo-site.main.jp/product/clayge%e3%82%af%e3%83%ac%e3%83%bc%e3%82%b8%e3%83%a5-%e3%82%b7%e3%83%a3%e3%83%b3%e3%83%97%e3%83%bc/" data-terms="シャンプー">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/skuimg_617087_xl.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="シャンプー">
+									<a href="http://photo-site.main.jp/product/clayge%e3%82%af%e3%83%ac%e3%83%bc%e3%82%b8%e3%83%a5-%e3%82%b7%e3%83%a3%e3%83%b3%e3%83%97%e3%83%bc/" data-terms="シャンプー">
+															<span class="articleTitle">
+							CLAYGE(クレージュ) シャンプー						</span>
+						<span class="listDate">2018年07月13日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="シャンプー">
+								<div class="commentTextWrap" data-terms="シャンプー">
+											アロマティックで髪をバランスよく整えるフレンチラベンダーの花のエッセンシャルオイル＊1、保湿・保護作…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.bounceIn, .invisible)">
+			<div class="listImages" data-terms="コンディショナー">
+							<a href="http://photo-site.main.jp/product/clayge%e3%82%af%e3%83%ac%e3%83%bc%e3%82%b8%e3%83%a5-%e3%82%b3%e3%83%b3%e3%83%87%e3%82%a3%e3%82%b7%e3%83%a7%e3%83%8a%e3%83%bc/" data-terms="コンディショナー">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/244855_xl.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="コンディショナー">
+									<a href="http://photo-site.main.jp/product/clayge%e3%82%af%e3%83%ac%e3%83%bc%e3%82%b8%e3%83%a5-%e3%82%b3%e3%83%b3%e3%83%87%e3%82%a3%e3%82%b7%e3%83%a7%e3%83%8a%e3%83%bc/" data-terms="コンディショナー">
+															<span class="articleTitle">
+							CLAYGE(クレージュ) コンディショナー						</span>
+						<span class="listDate">2018年07月13日</span>
+														</a>
+							</dt>
+			
+			<dd data-terms="コンディショナー">
+								<div class="commentTextWrap" data-terms="コンディショナー">
+											クレンジング、コンディショナー、トリートメント機能がオールインワン。ダメージを補修し、頭皮もすっきり…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																					</ul>
+						</div><!-- productListWrap END -->
+						
+						<nav class="moreListNavi">
+							<a href="/product"><span></span></a>
+						</nav>
+									</div><!-- .mainContentWrap END -->
+			</div><!-- .containerSection END -->
+									<div id="menuSection" class="containerSection sort5">
+				<div class="mainContentWrap">
+					<div class="indexTitleSetsWrap visualH2Title" style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/4_low_poly_by_prusakov-d6ks4mp.jpg);">
+						<h2 class="comIndexH2 menuH2">
+							<span class="main">Menu</span>
+							<span class="sub">皆様のキレイを精一杯お手伝いさせていただきます。</span>						</h2>
+						<div class="postMainText"><span class="contentSpan">明るく気さくなスタッフがお客様1人1人を大切におもてなしをさせていただきます。
+</span><span class="contentSpan">お客様の髪の悩みを勉強熱心なスタッフが丁寧に相談に乗らせていただきます。お客様がとっておきの笑顔でお帰りになられますよう、私達は最高の技術を提供致します。
+</span><span class="contentSpan">
+</span><span class="contentSpan">寛ぎの空間で贅沢な時間をお過ごしください。</span></div>					</div>
+					
+											
+						<div class="menuListWrap">
+							<ul>																						
+
+	<li class="animated " data-scroll="toggle(.zoomInDown, .invisible)">
+			<h3 class="menuH3">
+			<a href="/menu_category/cut"><span>カット</span><span>カット</span></a>
+		</h3>
+		
+		<p class="cateDescription"><span>～デザイン・似合わせ・ご自宅での再現性～
+</span><span>ヘアスタイルを作る上でこの3つの要素を大切に、ヘアデザインに落とし込みます。お客様の髪質に合わせ、カットだけでキマる外国人のような柔らかい質感へ。</span></p>		
+		
+					<div class="cateImages">
+				<a href="/menu_category/cut">					<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/B020693514-550x840.jpg);"></span>
+				</a>			</div>
+				
+		
+					<ul class="menuListBlock">
+									<li>
+						<dl>
+							<dt>
+								<span class="titleArea">
+									<span class="main">スタイリストカット</span>
+									<span class="sub">シャンプー・ブロー込み</span>								</span>
+								<span class="priceArea">
+																														<span class="price">3,240</span>
+																												<span class="priceFrom"></span>								</span>
+							</dt>
+							<dd>
+								<span>社内技術、社内接客テストに合格したスタイリスト</span>							</dd>
+						</dl>
+					</li>
+									<li>
+						<dl>
+							<dt>
+								<span class="titleArea">
+									<span class="main">前髪カット</span>
+									<span class="sub">ぱっつん</span>								</span>
+								<span class="priceArea">
+																														<span class="price">20,000</span>
+																												<span class="priceFrom"></span>								</span>
+							</dt>
+							<dd>
+								<span>多くのお客様に支持され、指名率の高いスタイリスト</span>							</dd>
+						</dl>
+					</li>
+									<li>
+						<dl>
+							<dt>
+								<span class="titleArea">
+									<span class="main">キッズカット</span>
+									<span class="sub">小学生まで</span>								</span>
+								<span class="priceArea">
+																														<span class="price">4,500</span>
+																					<span class="price">5,000</span>
+																																				</span>
+							</dt>
+							<dd>
+								<span>指名率・技術共にＢＡＳＳＡ内トップのスタイリスト</span>							</dd>
+						</dl>
+					</li>
+							</ul>
+			</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.zoomInDown, .invisible)">
+			<h3 class="menuH3">
+			<a href="/menu_category/color"><span>カラー</span><span>カラー</span></a>
+		</h3>
+		
+		<p class="cateDescription"><span>ヘアデザイン・ファッション・ライフスタイルや季節に合わせたヘアカラーを。薬剤にこだわったオーガニックカラーで外国人風カラーで様々なデザインを。</span></p>		
+		
+					<div class="cateImages">
+				<a href="/menu_category/color">					<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/B020111236-550x855.jpg);"></span>
+				</a>			</div>
+				
+		
+					<ul class="menuListBlock">
+									<li>
+						<dl>
+							<dt>
+								<span class="titleArea">
+									<span class="main">デザイニングカラー</span>
+									<span class="sub">髪の長さで料金変動</span>								</span>
+								<span class="priceArea">
+																														<span class="price">5,400</span>
+																																				</span>
+							</dt>
+							<dd>
+								<span>デザインや髪のコンディションに合わせてアルカリカラー・酸性カラーを多数ご用意 ご要望に合わせてカラーデザインを提案</span>							</dd>
+						</dl>
+					</li>
+									<li>
+						<dl>
+							<dt>
+								<span class="titleArea">
+									<span class="main">リタッチカラー</span>
+									<span class="sub">カット・ブロー別</span>								</span>
+								<span class="priceArea">
+																														<span class="price">5,000</span>
+																												<span class="priceFrom"></span>								</span>
+							</dt>
+							<dd>
+								<span>根元から2cm以内のカラー</span>							</dd>
+						</dl>
+					</li>
+									<li>
+						<dl>
+							<dt>
+								<span class="titleArea">
+									<span class="main">ヘナカラー</span>
+									<span class="sub">髪の長さで料金変動</span>								</span>
+								<span class="priceArea">
+																														<span class="price">7,020</span>
+																					<span class="price">15,000</span>
+																																				</span>
+							</dt>
+							<dd>
+								<span>トリートメント効果のある植物性染料 プラスアルファの効果を生むヘナに混ぜるトッピング素材</span>							</dd>
+						</dl>
+					</li>
+							</ul>
+			</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.zoomInDown, .invisible)">
+			<h3 class="menuH3">
+			<a href="/menu_category/perm"><span>パーマ</span><span>パーマ</span></a>
+		</h3>
+		
+		<p class="cateDescription"><span>誰もが羨むふんわりウェーブ－丁寧なカウンセリングと計算されたカットで理想をカタチに！
+</span><span>ダメージレス薬剤もご用意♪</span></p>		
+		
+					<div class="cateImages">
+				<a href="/menu_category/perm">					<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/B022254386-550x774.jpg);"></span>
+				</a>			</div>
+				
+		
+					<ul class="menuListBlock">
+									<li>
+						<dl>
+							<dt>
+								<span class="titleArea">
+									<span class="main">スタンダードパーマ</span>
+									<span class="sub">カット・ブロー別</span>								</span>
+								<span class="priceArea">
+																														<span class="price">4,860</span>
+																												<span class="priceFrom"></span>								</span>
+							</dt>
+							<dd>
+								<span>弾力のあるカｰルやウェーブを表現</span>							</dd>
+						</dl>
+					</li>
+									<li>
+						<dl>
+							<dt>
+								<span class="titleArea">
+									<span class="main">クリエーターキュール</span>
+																	</span>
+								<span class="priceArea">
+																														<span class="price">12,960</span>
+																					<span class="price">28,080</span>
+																																				</span>
+							</dt>
+							<dd>
+								<span>ウェーブの立体感が思いのままに！ 
+</span><span>しなやかな仕上がりの形状記憶パーマです。</span>							</dd>
+						</dl>
+					</li>
+							</ul>
+			</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.zoomInDown, .invisible)">
+			<h3 class="menuH3">
+			<a href="/menu_category/treatment"><span>トリートメント</span><span>トリートメント</span></a>
+		</h3>
+		
+		<p class="cateDescription"><span>補修や保湿効果に優れた濃密美容成分と、ダメージで狭くなった髪内部の通り道を広げて深く浸透させられる革新浸透テクノロジーで美容成分が瞬時にたっぷり浸透。</span></p>		
+		
+					<div class="cateImages">
+				<a href="/menu_category/treatment">					<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/B020801502-550x893.jpg);"></span>
+				</a>			</div>
+				
+		
+					<ul class="menuListBlock">
+									<li>
+						<dl>
+							<dt>
+								<span class="titleArea">
+									<span class="main">オージュアトリートメント</span>
+									<span class="sub">カット・ブロー別</span>								</span>
+								<span class="priceArea">
+																														<span class="price">4,320</span>
+																												<span class="priceFrom"></span>								</span>
+							</dt>
+							<dd>
+								<span>日本の女性一人ひとりの美髪をともに育むシステム ヘアケア プログラム＝オージュア</span>							</dd>
+						</dl>
+					</li>
+									<li>
+						<dl>
+							<dt>
+								<span class="titleArea">
+									<span class="main">炭酸泉トリートメント</span>
+									<span class="sub">カット・ブロー別</span>								</span>
+								<span class="priceArea">
+																														<span class="price">1,080</span>
+																												<span class="priceFrom"></span>								</span>
+							</dt>
+							<dd>
+								<span>炭酸ガスの浸透作用で真皮層から血管に入り込んだ 炭酸ガスが血管を広げて血流を促進し、炭酸が血液中のヘモグロビンと 結びついて血管内の酸素が皮膚組織へと入り込み、酸素を吸収した皮膚細胞の 新陳代謝が活発になる効果があります。</span>							</dd>
+						</dl>
+					</li>
+							</ul>
+			</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.zoomInDown, .invisible)">
+			<h3 class="menuH3">
+			<a href="/menu_category/head-spa"><span>ヘッドスパ</span><span>ヘッドスパ</span></a>
+		</h3>
+		
+		<p class="cateDescription"><span>頭皮の内側を活性化することで頭皮環境を外側から改善する従来の頭皮ケアに加えることで、もともと携わっているヘアサイクルを取り戻し、発毛できる環境へ改善していきます。</span></p>		
+		
+					<div class="cateImages">
+				<a href="/menu_category/head-spa">					<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/B023528214-550x774.jpg);"></span>
+				</a>			</div>
+				
+		
+					<ul class="menuListBlock">
+									<li>
+						<dl>
+							<dt>
+								<span class="titleArea">
+									<span class="main">30分コース</span>
+									<span class="sub">カット・ブロー別</span>								</span>
+								<span class="priceArea">
+																														<span class="price">3,240</span>
+																																				</span>
+							</dt>
+							<dd>
+								<span>頭皮クレンジング～シャンプー～頭皮トリートメント～マッサージ～ブローまでのベーシックコース。</span>							</dd>
+						</dl>
+					</li>
+									<li>
+						<dl>
+							<dt>
+								<span class="titleArea">
+									<span class="main">45分コース</span>
+									<span class="sub">カット・ブロー別</span>								</span>
+								<span class="priceArea">
+																														<span class="price">4,860</span>
+																																				</span>
+							</dt>
+							<dd>
+								<span>髪質にあったシャンプー剤を使用し洗いながら髪内部にまずタンパク質を入れ込みます。上記Ａコーストリートメントに更に高濃度ケラチンタンパクを加えダメージヘアを徹底的に髪の内部から修復するお勧め集中トリートメントコースです。</span>							</dd>
+						</dl>
+					</li>
+							</ul>
+			</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.zoomInDown, .invisible)">
+			<h3 class="menuH3">
+			<a href="/menu_category/other"><span>その他</span><span>その他</span></a>
+		</h3>
+		
+		<p class="cateDescription"><span></span></p>		
+		
+					<div class="cateImages">
+				<a href="/menu_category/other">					<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/Etsy-Photoshop-4.jpg);"></span>
+				</a>			</div>
+				
+		
+					<ul class="menuListBlock">
+									<li>
+						<dl>
+							<dt>
+								<span class="titleArea">
+									<span class="main">マッサージシャンプー</span>
+									<span class="sub">ブロー別</span>								</span>
+								<span class="priceArea">
+																														<span class="price">1,080</span>
+																																				</span>
+							</dt>
+							<dd>
+								<span>頭皮をマッサージするように洗うことで心地よい刺激を与え血行を促進する効果があります。</span>							</dd>
+						</dl>
+					</li>
+									<li>
+						<dl>
+							<dt>
+								<span class="titleArea">
+									<span class="main">ブロー</span>
+																	</span>
+								<span class="priceArea">
+																														<span class="price"></span>
+																																				</span>
+							</dt>
+							<dd>
+								<span>1620</span>							</dd>
+						</dl>
+					</li>
+									<li>
+						<dl>
+							<dt>
+								<span class="titleArea">
+									<span class="main">アップスタイリング</span>
+																	</span>
+								<span class="priceArea">
+																														<span class="price">4,320</span>
+																												<span class="priceFrom"></span>								</span>
+							</dt>
+							<dd>
+								<span>アレンジ次第でさまざまな印象を与えてくれますので、自分に合ったスタイルを探してみてください。</span>							</dd>
+						</dl>
+					</li>
+							</ul>
+			</li>
+
+																					</ul>
+						</div><!-- menuListWrap END -->
+						
+						<nav class="moreListNavi">
+							<a href="/menu"><span></span></a>
+						</nav>
+									</div><!-- .mainContentWrap END -->
+			</div><!-- .containerSection END -->
+									<div id="staffSection" class="containerSection sort6">
+				<div class="mainContentWrap">
+					<div class="indexTitleSetsWrap visualH2Title" style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/IMG_7328.jpg);">
+						<h2 class="comIndexH2 staffH2">
+							<span class="main">Staff</span>
+							<span class="sub">スタッフ紹介</span>						</h2>
+						<div class="postMainText"><span class="contentSpan">お客様の利便性に配慮し、高い技術力を誇りにホスピタリティーあふれるスタッフが皆様をお迎えいたします。</span></div>					</div>
+					
+											
+						<div class="staffListWrap">
+							<ul>																						
+
+	<li class="animated " data-scroll="toggle(.zoomInLeft, .invisible)">
+			<div class="listImages" data-terms="Creative Director">
+							<a href="http://photo-site.main.jp/staff/%e6%b2%bc%e5%b0%bb-%e5%85%b8%e7%a5%a5/" data-terms="Creative Director">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/S9.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="Creative Director">
+									<a href="http://photo-site.main.jp/staff/%e6%b2%bc%e5%b0%bb-%e5%85%b8%e7%a5%a5/" data-terms="Creative Director">
+															<span class="kana">ヌマジリ ノリヤス</span>						<span class="name">沼尻 典祥<span class="eng">noriyasu numajiri</span></span>
+						
+						<span class="jobType">ディレクター <span class="positionType">副店長 </span></span>														</a>
+							</dt>
+			
+			<dd data-terms="Creative Director">
+								<div class="commentTextWrap" data-terms="Creative Director">
+											メンズカットはお任せください　必ずカッコよくします
+副店長の沼尻です。　お客様の美容室での（大丈夫…									</div><!-- .commentTextWrap -->
+								
+								
+															<div class="staffInfo">
+														<dl>
+								<dt><span>血液型</span></dt>								<dd><span>B型</span></dd>							</dl>
+													</div>
+												</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li class="animated " data-scroll="toggle(.zoomInLeft, .invisible)">
+			<div class="listImages" data-terms="Stylist">
+							<a href="http://photo-site.main.jp/staff/%e5%ae%89%e8%97%a4-%e5%8d%97/" data-terms="Stylist">
+																<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/B020801502-550x893.jpg);"></span>
+											</a>
+					</div>
+		
+		<dl>
+			<dt data-terms="Stylist">
+									<a href="http://photo-site.main.jp/staff/%e5%ae%89%e8%97%a4-%e5%8d%97/" data-terms="Stylist">
+															<span class="kana">アンドウ ミナミ</span>						<span class="name">安藤 南<span class="eng">minami ando</span></span>
+						
+						<span class="jobType">スタイリスト<span class="positionType"></span></span>														</a>
+							</dt>
+			
+			<dd data-terms="Stylist">
+								<div class="commentTextWrap" data-terms="Stylist">
+											常にトレンドを意識。ルーズな外国人風お洒落ヘアー
+透明感ある外国人風カラーや柔らかいグラデーション…									</div><!-- .commentTextWrap -->
+								
+								
+															<div class="staffInfo">
+														<dl>
+								<dt><span>血液型</span></dt>								<dd><span>A型</span></dd>							</dl>
+													</div>
+												</dd>
+		</dl>
+	</li>
+
+																					</ul>
+						</div><!-- staffListWrap END -->
+						
+						<nav class="moreListNavi">
+							<a href="/staff"><span></span></a>
+						</nav>
+									</div><!-- .mainContentWrap END -->
+			</div><!-- .containerSection END -->
+									<div id="voiceSection" class="containerSection sort7">
+				<div class="mainContentWrap">
+					<div class="indexTitleSetsWrap">
+						<h2 class="comIndexH2 voiceH2">
+							<span class="main">Voice</span>
+							<span class="sub">お客様の声</span>						</h2>
+						<div class="postMainText"><span class="contentSpan">お客様の笑顔や率直な感想、満足の言葉がいっぱいのお客様の声で、リアルな評判、評価をご確認ください。</span></div>					</div>
+					
+											
+						<div class="voiceListWrap">
+							<ul>																						
+
+	<li>
+			<div class="listImages" data-terms="">
+							<span>
+																													<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/themes/temp/assets/images/notImages.jpg);"></span>
+																						</span>
+					</div>
+		
+		<dl>
+			<dt data-terms="">
+															<span class="name">
+							C.C							<span class="age">40歳</span>							<span class="job">主婦</span>													</span>
+						<span class="listDate">2018年07月18日</span>
+												</dt>
+			
+			<dd data-terms="">
+								<div class="commentTextWrap" data-terms="">
+											友人に紹介してもらってから通うようになりました。
+社会人になってから、なかなかここだという美容院に…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li>
+			<div class="listImages" data-terms="">
+							<span>
+																													<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/themes/temp/assets/images/female.svg);"></span>
+																						</span>
+					</div>
+		
+		<dl>
+			<dt data-terms="">
+															<span class="name">
+							B.B							<span class="age">30歳</span>							<span class="job">アパレル</span>							<span class="sex">女性</span>						</span>
+						<span class="listDate">2018年07月18日</span>
+												</dt>
+			
+			<dd data-terms="">
+								<div class="commentTextWrap" data-terms="">
+											人生で最高の美容室 Sii に出会えました。
+今まではカットが上手なところを重視していましたが、髪…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																						
+
+	<li>
+			<div class="listImages" data-terms="">
+							<span>
+																													<span style="background-image: url(http://photo-site.main.jp/temp/wp-content/themes/temp/assets/images/male.svg);"></span>
+																						</span>
+					</div>
+		
+		<dl>
+			<dt data-terms="">
+															<span class="name">
+							A.A							<span class="age">20歳</span>							<span class="job">会社員</span>							<span class="sex">男性</span>						</span>
+						<span class="listDate">2018年07月18日</span>
+												</dt>
+			
+			<dd data-terms="">
+								<div class="commentTextWrap" data-terms="">
+											わたし個人的には、肌やお肌は自分の体質、髪質を知って大事にすればする程キレイになるものと思っています…									</div><!-- .commentTextWrap -->
+								
+								
+							</dd>
+		</dl>
+	</li>
+
+																					</ul>
+						</div><!-- voiceListWrap END -->
+						
+						<nav class="moreListNavi">
+							<a href="/voice"><span></span></a>
+						</nav>
+									</div><!-- .mainContentWrap END -->
+			</div><!-- .containerSection END -->
+									<div id="companySection" class="paraContainerSection sortLast" style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/11.jpg);">
+				<div class="mainContentWrap">
+					<div class="indexTitleSetsWrap">
+						<h2 class="comIndexH2 companyH2">
+							<span class="main">Company</span>
+													</h2>
+											</div>
+					
+																		
+<div class="companyContentWrap">
+	<div class="companyInformationWrap animated " data-scroll="toggle(.zoomInUp, .invisible)">		<div class="companyImage">
+			<img src="http://photo-site.main.jp/temp/wp-content/uploads/2018/07/11.jpg" alt="株式会社Areus（アレス）" />
+		</div>
+		
+		<div class="companyInfoWrap">
+			<div class="companyDescription"><span class="contentSpan">経験と知識・技術に裏打ちされた確かなマーケティング、高い専門性と柔軟性に富んだシステムの設計・開発、きめ細やかなマネジメントと上質なデザインによる洗練されたブランディングを一貫して提供。
+</span><span class="contentSpan">
+</span><span class="contentSpan">クライアントのビジネスのベストプラクティスを実現します。</span></div>			
+			<div class="companyInfoBlock">
+								<dl>
+					<dt><span>住所</span></dt>
+					<dd><span class="contentSpan">〒160-0022 東京都新宿区新宿6丁目27−30 新宿イーストサイドスクエア 3階（332）</span></dd>
+				</dl>
+								
+								<dl>
+					<dt><span>電話番号</span></dt>
+					<dd><span class="contentSpan"><span class="tel" data-action="call" data-tel="0369114411">03-6911-4411</span></span></dd>
+				</dl>
+								
+								<dl>
+					<dt><span>受付時間</span></dt>
+					<dd>
+						<span class="contentSpan">11:00～20:30（月～金） カット最終受付20:30
+</span><span class="contentSpan">10:00～19:00（土・日・祝） カット最終受付19:00
+</span><span class="contentSpan">※その他のメニューはお電話にてご確認下さい。</span>					</dd>
+				</dl>
+								
+								<dl>
+					<dt><span>定休日</span></dt>
+					<dd>
+						<span class="contentSpan">火曜日
+</span><span class="contentSpan">※祝日・12月は営業いたします</span>					</dd>
+				</dl>
+								
+													<dl>
+						<dt><span>設立</span></dt>						<dd><span class="contentSpan">2008年9月1日</span></dd>					</dl>
+											</div>
+			
+			<ul class="contactBtn">
+				<li><a href="/contact"><span>Contact</span></a></li>
+				<li><a href="/reservation"><span>Reservation</span></a></li>
+			</ul>
+		</div><!-- .companyInfoWrap END -->
+	</div><!-- .companyInformationWrap END -->
+	
+	<div class="mapWrap animated " data-scroll="toggle(.zoomInUp, .invisible)">		<div id="map"></div>
+	</div><!-- .mapWrap END -->
+</div><!-- .companyContentWrap END -->
+															</div><!-- .mainContentWrap END -->
+			</div><!-- .containerSection END -->
+							</div><!-- #container END -->
+		
+		<article class="instaListWrap"><input type="checkbox" id="insta1" name="modalSwitch" value="" /><input type="checkbox" id="insta2" name="modalSwitch" value="" /><input type="checkbox" id="insta3" name="modalSwitch" value="" /><input type="checkbox" id="insta4" name="modalSwitch" value="" /><input type="checkbox" id="insta5" name="modalSwitch" value="" /><input type="checkbox" id="insta6" name="modalSwitch" value="" /><input type="checkbox" id="insta7" name="modalSwitch" value="" /><input type="checkbox" id="insta8" name="modalSwitch" value="" /><input type="checkbox" id="insta9" name="modalSwitch" value="" /><input type="checkbox" id="insta10" name="modalSwitch" value="" /><input type="checkbox" id="insta11" name="modalSwitch" value="" /><input type="checkbox" id="insta12" name="modalSwitch" value="" /><h2 class="instaH2"><span>areusbizzare</span><span>Follow us on Instagram</span></h2><section class="instaListSection"><ul><li><label for="insta1"><span style="background-image: url(https://scontent.cdninstagram.com/vp/1b726de9dd38af30dc11f43b9bfd5cf5/5C9A9130/t51.2885-15/e35/p320x320/28153197_502010663527691_555170668136628224_n.jpg?_nc_ht=scontent.cdninstagram.com);"></span></label><div class="instaModalWrap1"><div class="instaModalContainer"><div class="instaImage"><span><img src="https://scontent.cdninstagram.com/vp/442f892c499a3922212f765f2e9d1c6f/5CA819DC/t51.2885-15/sh0.08/e35/p640x640/28153197_502010663527691_555170668136628224_n.jpg?_nc_ht=scontent.cdninstagram.com" alt="Aaaaaaaaaa" /></span></div><div class="instaText"><p>Aaaaaaaaaaaaaaa</p>
+<p>Fghhjuuhfdddddddddffff</p>
+<p>Jkkiuiuuuuiiiiiiiiiii<br />
+はひやたなは</p>
+<p>にほやな<br />
+にひしきと」はり<br />
+#test #test1 #test2</p>
+</div></div><label for="insta1"></label><span class="close"><span>Close</span></span></div></li><li><label for="insta2"><span style="background-image: url(https://scontent.cdninstagram.com/vp/0fd09fe491fb738e1c26d1fe1546f7cf/5CA75B2E/t51.2885-15/e35/p320x320/28428699_1735946109760500_4104168622325235712_n.jpg?_nc_ht=scontent.cdninstagram.com);"></span></label><div class="instaModalWrap2"><div class="instaModalContainer"><div class="instaImage"><span><img src="https://scontent.cdninstagram.com/vp/acbf9dca73a599c53167035f3c42d6d4/5C94CFD3/t51.2885-15/sh0.08/e35/p640x640/28428699_1735946109760500_4104168622325235712_n.jpg?_nc_ht=scontent.cdninstagram.com" alt="キャプション
+ぬやま" /></span></div><div class="instaText"><p>キャプション<br />
+ぬやまたあかさらお<br />
+たとにゆたあしりやみきさりわまやは</p>
+<p>えあrgghubhhhhh</p>
+<p>はなたあしらやあ<br />
+らやさはなたあかさ</p>
+</div></div><label for="insta2"></label><span class="close"><span>Close</span></span></div></li><li><label for="insta3"><span style="background-image: url(https://scontent.cdninstagram.com/vp/c9c16191ea7bbeeb196188a94b612322/5C93CD97/t51.2885-15/e15/p320x320/27573725_1096635853811594_2491167626810621952_n.jpg?_nc_ht=scontent.cdninstagram.com);"></span></label><div class="instaModalWrap3"><div class="instaModalContainer"><div class="instaImage"><span><img src="https://scontent.cdninstagram.com/vp/aaa17f6cc7ea4e78d6ff8e7d5c2a88fd/5C9E682C/t51.2885-15/e15/p640x640/27573725_1096635853811594_2491167626810621952_n.jpg?_nc_ht=scontent.cdninstagram.com" alt="&nbsp;" /></span></div></div><label for="insta3"></label><span class="close"><span>Close</span></span></div></li></ul><ul><li><label for="insta4"><span style="background-image: url(https://scontent.cdninstagram.com/vp/80c050a81efe23f0703e51b132cc45e2/5C8D544C/t51.2885-15/e15/p320x320/27582283_152383298899535_3960620954048004096_n.jpg?_nc_ht=scontent.cdninstagram.com);"></span></label><div class="instaModalWrap4"><div class="instaModalContainer"><div class="instaImage"><span><img src="https://scontent.cdninstagram.com/vp/6d2832a8739896bd3709abd9cc7a9f0d/5C97BA23/t51.2885-15/e15/p640x640/27582283_152383298899535_3960620954048004096_n.jpg?_nc_ht=scontent.cdninstagram.com" alt="&nbsp;" /></span></div></div><label for="insta4"></label><span class="close"><span>Close</span></span></div></li><li><label for="insta5"><span style="background-image: url(https://scontent.cdninstagram.com/vp/c4ce6af2a1164f48a8f1b1efc1fbe3d4/5CAAB95C/t51.2885-15/e15/p320x320/27576856_154006785304524_3596027584086802432_n.jpg?_nc_ht=scontent.cdninstagram.com);"></span></label><div class="instaModalWrap5"><div class="instaModalContainer"><div class="instaImage"><span><img src="https://scontent.cdninstagram.com/vp/16577de9c50e07563edcdf3f5accc1cb/5C928733/t51.2885-15/e15/p640x640/27576856_154006785304524_3596027584086802432_n.jpg?_nc_ht=scontent.cdninstagram.com" alt="&nbsp;" /></span></div></div><label for="insta5"></label><span class="close"><span>Close</span></span></div></li><li><label for="insta6"><span style="background-image: url(https://scontent.cdninstagram.com/vp/613a5538a6fe88beeb187380b179f4ea/5CA587FB/t51.2885-15/e15/p320x320/26868479_1205711296228249_5758437209808044032_n.jpg?_nc_ht=scontent.cdninstagram.com);"></span></label><div class="instaModalWrap6"><div class="instaModalContainer"><div class="instaImage"><span><img src="https://scontent.cdninstagram.com/vp/2481f3b7731ff3f2ef496b141615b610/5C8C9540/t51.2885-15/e15/p640x640/26868479_1205711296228249_5758437209808044032_n.jpg?_nc_ht=scontent.cdninstagram.com" alt="&nbsp;" /></span></div></div><label for="insta6"></label><span class="close"><span>Close</span></span></div></li></ul><ul><li><label for="insta7"><span style="background-image: url(https://scontent.cdninstagram.com/vp/1d42f6d674cf8b2864bf4d780e84e105/5CA59CBF/t51.2885-15/e15/s320x320/27574414_416292985458118_7786253632898334720_n.jpg);"></span></label><div class="instaModalWrap7"><div class="instaModalContainer"><div class="instaImage"><span><img src="https://scontent.cdninstagram.com/vp/de0c5fd290a198ac124bd57b72ec12ea/5C8C95D0/t51.2885-15/e15/s640x640/27574414_416292985458118_7786253632898334720_n.jpg" alt="Test02" /></span></div><div class="instaText"><p>Test02</p>
+</div></div><label for="insta7"></label><span class="close"><span>Close</span></span></div></li><li><label for="insta8"><span style="background-image: url(https://scontent.cdninstagram.com/vp/363b35f5580ce1cee3d4dc063633acd4/5C901F5A/t51.2885-15/e15/p320x320/27578773_215336289041759_6452947904200966144_n.jpg?_nc_ht=scontent.cdninstagram.com);"></span></label><div class="instaModalWrap8"><div class="instaModalContainer"><div class="instaImage"><span><img src="https://scontent.cdninstagram.com/vp/d54930760693b5a16785fb56c26a36da/5CB17335/t51.2885-15/e15/p640x640/27578773_215336289041759_6452947904200966144_n.jpg?_nc_ht=scontent.cdninstagram.com" alt="Test" /></span></div><div class="instaText"><p>Test</p>
+</div></div><label for="insta8"></label><span class="close"><span>Close</span></span></div></li><li><label for="insta9"><span style="background-image: url(https://scontent.cdninstagram.com/vp/068d3b8a7912d6c9a48ed27debf4f1b6/5CAC7D46/t51.2885-15/e15/p320x320/26865725_335011503663305_6839934636643057664_n.jpg?_nc_ht=scontent.cdninstagram.com);"></span></label><div class="instaModalWrap9"><div class="instaModalContainer"><div class="instaImage"><span><img src="https://scontent.cdninstagram.com/vp/744d6b5e1c704f67d6dccab92a777600/5C9D9A29/t51.2885-15/e15/p640x640/26865725_335011503663305_6839934636643057664_n.jpg?_nc_ht=scontent.cdninstagram.com" alt="&nbsp;" /></span></div></div><label for="insta9"></label><span class="close"><span>Close</span></span></div></li></ul><ul><li><label for="insta10"><span style="background-image: url(https://scontent.cdninstagram.com/vp/a34cb6da088ff6688a8913bd4174ad67/5CA8738A/t51.2885-15/e15/p320x320/26865473_144736436216181_4497078368071581696_n.jpg);"></span></label><div class="instaModalWrap10"><div class="instaModalContainer"><div class="instaImage"><span><img src="https://scontent.cdninstagram.com/vp/b74bd60b83ad219b1c2b4617dcf0be17/5C9A51E5/t51.2885-15/e15/p640x640/26865473_144736436216181_4497078368071581696_n.jpg" alt="&nbsp;" /></span></div></div><label for="insta10"></label><span class="close"><span>Close</span></span></div></li><li><label for="insta11"><span style="background-image: url(https://scontent.cdninstagram.com/vp/b175db2042de921536cb071aea26aff9/5C9D0BBC/t51.2885-15/e15/p320x320/26864975_413137725788452_7691112488019951616_n.jpg?_nc_ht=scontent.cdninstagram.com);"></span></label><div class="instaModalWrap11"><div class="instaModalContainer"><div class="instaImage"><span><img src="https://scontent.cdninstagram.com/vp/eab9d0d6aa61c3921d3ecae2a993f3d6/5C983ED3/t51.2885-15/e15/p640x640/26864975_413137725788452_7691112488019951616_n.jpg?_nc_ht=scontent.cdninstagram.com" alt="&nbsp;" /></span></div></div><label for="insta11"></label><span class="close"><span>Close</span></span></div></li><li><label for="insta12"><span style="background-image: url(https://scontent.cdninstagram.com/vp/7032528f616c7d305df09b24405bcaed/5CA2C3BC/t51.2885-15/e15/p320x320/26866023_204440993444938_5521763105681440768_n.jpg?_nc_ht=scontent.cdninstagram.com);"></span></label><div class="instaModalWrap12"><div class="instaModalContainer"><div class="instaImage"><span><img src="https://scontent.cdninstagram.com/vp/46a9a75b08a1d0877e15e323c6b9d2e7/5C967DD3/t51.2885-15/e15/p640x640/26866023_204440993444938_5521763105681440768_n.jpg?_nc_ht=scontent.cdninstagram.com" alt="test" /></span></div><div class="instaText"><p>test</p>
+</div></div><label for="insta12"></label><span class="close"><span>Close</span></span></div></li></ul></section></article>		
+										<article class="contactBannerWrap" style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/membership.jpg);">
+				<div class="contactBannerContainer" style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/membership.jpg);">
+					<div class="contactTextWrap">
+													<div class="contactText" style="background-image: url(http://photo-site.main.jp/temp/wp-content/uploads/2018/07/membership.jpg);">
+								<h2>
+									<span class="contactMainTitle">お問い合わせはこちら</span>
+									<span class="contactMainTitleEng">Please Contact us</span>								</h2>
+								<h3 class="contactSubTitle"><span>お気軽にお問い合わせください</span></h3>								
+																<p class="contactTime">月～金曜日	9:00～18:00<br />
+土曜日	9:00～17:00（祝日・12/31～1/3を除く）</p>								<p class="contactArticle">どんなささいなことでもお聞きください。<br />
+お客さまがご納得いただけるまで経験豊富な保険プランナーがご相談に乗ります。</p>							</div>
+												
+						<ul>
+							<li class="tel"><p class="contactTel" data-action="call" data-tel="0312345678"><span class="telIcon"><img src="http://photo-site.main.jp/temp/wp-content/uploads/2018/07/telephone01.svg" alt="0312345678"/></span><span>03-1234-5678</span></p></li>							
+							<li class="contact">
+								<a href="/contact"><span></span></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</article>
+				
+							<div class="fBannerWrap">
+				<div class="fBannerContainer">
+					<ul>
+											<li>
+							<a href="http://photo-site.main.jp" target="_blank">
+								<img src="http://photo-site.main.jp/temp/wp-content/uploads/2018/07/HOME-NAIL-ACADEMY.svg" alt="HOME NAIL ACADEMY" />
+							</a>
+						</li>
+											<li>
+							<a href="http://photo-site.main.jp" target="_blank">
+								<img src="http://photo-site.main.jp/temp/wp-content/uploads/2018/07/tamarubi.svg" alt="TAMARUBI" />
+							</a>
+						</li>
+										</ul>
+				</div>
+			</div>
+						
+		<!-- ページトップ ここから -->
+		<p id="pageTopArea">
+			<a href="#pageTop"></a>
+		</p>
+		<!-- ページトップ ここまで -->
+		
+				<footer id="footerTypeB">
+			<div id="footerTopWrap">
+				<div class="footerLogo">
+					<a href="http://photo-site.main.jp/">
+													<img src="http://photo-site.main.jp/temp/wp-content/uploads/2018/07/logoW.svg" alt="株式会社Areus" />
+											</a>
+				</div>
+				
+				<nav class="footerGlobal">
+					<ul><li class="sortFirst current"><a href="http://photo-site.main.jp/">Home</a></li><li><a href="/news">News</a></li><li><a href="/blog">Blog</a></li><li><a href="/gallery">Gallery</a></li><li><a href="/product">Product</a></li><li><a href="/menu">Menu</a></li><li><a href="/staff">Staff</a></li><li><a href="/voice">Voice</a></li><li><a href="/company">Company</a></li><li><a href="http://photo-site.main.jp/animationaction/">Animation Action</a></li><li><a href="http://photo-site.main.jp/sidebyside/">SideBySide</a></li><li><a href="http://photo-site.main.jp/maincolumn1/">MainColumn1</a></li><li><a href="http://photo-site.main.jp/recruit/">Recruit</a></li></ul>				</nav>
+				
+									<nav class="footerSns">
+						<ul>
+							<li class="facebook"><a href="https://ja-jp.facebook.com/" target="_blank"></a></li>							<li class="twitter"><a href="https://twitter.com/?lang=ja" target="_blank"></a></li>							<li class="instagram"><a href="https://www.instagram.com/?hl=ja" target="_blank"></a></li>						</ul>
+					</nav>
+							</div><!-- #footerNaviWrap END -->
+
+			<div id="footerBottomWrap">
+				<nav class="navIntelligence">
+					<ul><li class="sort2"><a href="/history">History</a></li><li class="sort1"><a href="/privacy">Privacy</a></li><li class="sort1"><a href="/terms">Terms</a></li><li class="sort1"><a href="/specific">Specific</a></li><li class="sort1"><a href="http://photo-site.main.jp/contact/">Contact</a></li></ul>				</nav>
+				
+				<div class="copyRight">
+					<p class="captionP"><span>本サイトに掲載のコンテンツは著作権法により保護されています。</span><span>コンテンツの使用にあたっては料金が発生します</span></p>											<p class="copyright">© 2018 Style Stock inc. All rights reserved.</p>
+									</div>
+			</div><!-- #footerBottomWrap END -->
+		</footer>
+	</div><!-- #wrap END -->
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"http:\/\/photo-site.main.jp\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"\u3042\u306a\u305f\u304c\u30ed\u30dc\u30c3\u30c8\u3067\u306f\u306a\u3044\u3053\u3068\u3092\u8a3c\u660e\u3057\u3066\u304f\u3060\u3055\u3044\u3002"}}};
+/* ]]> */
+</script>
+<script async src='http://photo-site.main.jp/temp/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.0.3'></script>
+<script async src='http://photo-site.main.jp/temp/wp-includes/js/wp-embed.min.js?ver=4.9.8'></script>
+
+
+</body>
+</html>
